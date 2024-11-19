@@ -46,11 +46,10 @@ class LoginApp extends JFrame {
                 String username = usernameField.getText();
                 String password = new String(passwordField.getPassword());
 
-                // 在这里可以添加验证逻辑，比如检查用户名和密码是否正确
                 if (username.equals("admin") && password.equals("password")) {
-                    JOptionPane.showMessageDialog(LoginApp.this, "登录成功");
+                    JOptionPane.showMessageDialog(LoginApp.this, "Log in success");
                 } else {
-                    JOptionPane.showMessageDialog(LoginApp.this, "登录失败，请检查用户名和密码");
+                    JOptionPane.showMessageDialog(LoginApp.this, "Log in fail");
                 }
             }
         });

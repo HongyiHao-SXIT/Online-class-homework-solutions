@@ -1,8 +1,3 @@
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -15,7 +10,7 @@ public class LoginAPP extends JFrame{
         setTitle("欢迎来到扫雷");
         setSize(500,250);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new GridBagLayout());
+        setLayout(new GridLayout(3,2));
 
         JLabel usernamLabel = new JLabel("Username:");
         add(usernamLabel);
@@ -23,5 +18,20 @@ public class LoginAPP extends JFrame{
         usernameField = new JTextField();
         add(usernameField);
         
+        JLabel passwordLabel = new JLabel("Passwords:");
+        add(passwordLabel);
+
+        passwordField = new JPasswordField();
+        add(passwordField);
+
+        JButton loginButton = new JButton("Log in");
+        add(loginButton);
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                String username = usernameField.getText();
+                String password = new String(passwordField.getPassword());
+                        }
+        })
     }
 } 
