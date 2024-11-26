@@ -4,7 +4,7 @@ According to the development requirements, this system is mainly used in the edu
 
 During the development process of this system, attention was paid to making it conform to the operational business process, and efforts were made to make the system comprehensive and universal, so that this system is not only suitable for one school. During development, we conducted four main stages of system investigation and research, system analysis, system design and system implementation. In terms of specific design, we adopted an evolutionary prototyping method. As users use and understand the system, we Continue to deepen and reanalyze, design, and implement a certain part or parts.<br>
 
-<b>Keywords:</b> C/C++; student information management system; multi-function; automated management, linked list;
+<b>Keywords:</b> C/C++; student information management system; multi-function; automated management, linked list, Data Structures and Algorithms;
 
 ## Functuion
 1. Student information entry: The student's basic information (such as name, class, student number, etc.) is completed in the data field of the new node through operations such as linked lists and new nodes, and the pointer field points to the next node. to establish links with other data.
@@ -54,6 +54,41 @@ void sortDrop(struct Node* headNode){
         }
     }
     printList(list);
+}
+```
+### Insert algorithm
+```c
+void insertNodeByHead(struct Node* headNode,struct student data)
+{
+    struct Node* newNode = createNode(data);
+    newNode->next = headNode->next;
+    headNode->next = newNode;
+}
+```
+### File I/O
+```c
+void readInFromFile(struct Node* headNode,char* filename){
+    struct student data;
+    FILE *fp;
+    fp = fopen(filename,"r");
+    if(fp == NULL){
+        printf("文件打开失败！");
+    }
+    while (fscanf(fp,"%d\t%s\t%d\t%s\t%s\t%s\n",&data.num,data.name,&data.class,data.addr,data.tel,data.major) != EOF){
+        insertNodeByHead(headNode,data);
+    }
+
+    fclose(fp);
+}
+
+void writeInFromFile(struct Node* headNode,char* filename){
+    FILE *fp = fopen(filename,"w");
+    struct Node* pMove = headNode -> next;
+    while(pMove){
+        fprintf(fp,"%d\t%s\t%d\t%s\t%s\t%s\n",pMove->data.num,pMove->data.name,pMove->data.class,pMove->data.addr,pMove->data.tel,pMove->data.major);
+        pMove = pMove -> next;
+    }
+    fclose(fp);
 }
 ```
 

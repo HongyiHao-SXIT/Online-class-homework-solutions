@@ -4,7 +4,7 @@ According to the development requirements, this system is mainly used in the edu
 
 During the development process of this system, attention was paid to making it conform to the operational business process, and efforts were made to make the system comprehensive and universal, so that this system is not only suitable for one school. During development, we conducted four main stages of system investigation and research, system analysis, system design and system implementation. In terms of specific design, we adopted an evolutionary prototyping method. As users use and understand the system, we Continue to deepen and reanalyze, design, and implement a certain part or parts.<br>
 
-<b>Keywords:</b> C/C++; student information management system; multi-function; automated management, linked list;
+<b>Keywords:</b> C/C++; student information management system; multi-function; automated management, linked list, Data Structures and Algorithms;
 
 ## Functuion
 1. Student information entry: The student's basic information (such as name, class, student number, etc.) is completed in the data field of the new node through operations such as linked lists and new nodes, and the pointer field points to the next node. to establish links with other data.
@@ -21,8 +21,89 @@ During the development process of this system, attention was paid to making it c
 
 7. File saving: Use the function void writeInFromFile(struct Node* headNode,char* filename) to perform file reading and writing operations, so that the file can be saved in a specific txt document, so that the results can be saved for a long time.
 
+## HeadFile
+```cpp
+#include <bits/stdc++.h>
+```
+## Class
+```cpp
+class Student{
+public:
+	friend void Input(Student stu[]);
+	friend void Statistic(Student stu[]);
+	friend void Lookup(Student stu[]);
+	friend void Modify(Student stu[]);
+	friend void Delete(Student stu[]);
+	friend void Output(Student stu[]);
+	friend void Insert(Student stu[]);
+	friend void Sort(Student stu[]);
+	friend void Write(Student stu[],int n);
+	friend int Read(Student stu[]);
+private:
+	int num;
+	char name[8];
+	char class_0[20];
+	float elec;
+	float c_program;
+	float english;
+	float math;
+	float media;
+	float sport;
+	float polity;
+	float average;
+	int order;
+}stu[100];
+```
+## File I/O
+```cpp
+void Write(Student stu[], int n) {
+	fstream myFile;
+	myFile.open("score.txt", ios::out | ios::binary);
+	if (!myFile) {
+		cout << "score.txt can't open!" << endl;
+		abort();
+	}
+	int count = n;
+	myFile << count << endl<<endl;
+	for (int i = 0; i < count; i++) {
+		myFile << stu[i].class_0  << "\t"
+			   << stu[i].num      << "\t"
+			   << stu[i].name     << "\t"
+			   << stu[i].elec     << "\t"
+			   << stu[i].c_program<< "\t"
+			   << stu[i].media    << "\t"
+			   << stu[i].english  << "\t"
+			   << stu[i].math     << "\t"
+			   << stu[i].sport    << "\t"
+			   << stu[i].polity   << "\t"
+			   << stu[i].average  << endl;
+	}
+	myFile.close();
+}
+ 
+int Read(Student stu[]) {
+	fstream myFile;
+	myFile.open("score.txt", ios::in | ios::binary);
+	if (!myFile) {
+		cout << "score.txt can't open!" << endl;
+		abort();
+	}
+	int count;
+	myFile.seekg(0);
+	myFile >> count;
+	for (int i = 0; i <= count; i++) {
+		myFile >> stu[i].class_0 >> stu[i].num       >> stu[i].name 
+			   >> stu[i].elec    >> stu[i].c_program >> stu[i].media 
+			   >> stu[i].english >> stu[i].math      >> stu[i].sport 
+			   >> stu[i].polity  >> stu[i].average;
+	}
+	myFile.close();
+	return count;
+}
+```
+
 ## Algorithm
-### Sort algorithm
+### Bubble_Sort
 ```cpp
 void Sort(Student stu[]) {
 	system("cls");
