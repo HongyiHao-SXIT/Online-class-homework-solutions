@@ -1,0 +1,3 @@
+# C/C++ Code refactoring
+## Introduction
+In this repositories the documents about C and C++ has been post. But as we all knows, one of the best ways to improve your code ability is that: <strong>refactor your code</strong>. Therefore, I decide to restart this projcet and at the same time, I will add more frameworks like Qt, Mysql ets. Not only is it challenging, but it also makes it easier for users to use this program. 
