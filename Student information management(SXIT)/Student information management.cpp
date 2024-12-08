@@ -4,7 +4,8 @@ using namespace std;
 
 class student{
     public:
-    void input(Student stu[]);
+    void input(student stu[]);
+    void 
     private:
     int stu_num;
     string stu_name;

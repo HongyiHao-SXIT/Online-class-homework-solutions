@@ -1,5 +1,21 @@
-<html>
-    <body>
-        <APPLET CODE = "Myapplet.class" HEIGHT = 200 WIDTH = 300></APPLET>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Text Example</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="3000" height="200" style="border:1px solid #000000;"></canvas>
+
+    <script>
+        // 获取 canvas 元素和其绘图上下文
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        // 在 (20, 20) 位置绘制文本
+        ctx.font = "20px Arial";  // 设置字体和大小
+        ctx.fillText("Hello, Applet!", 20, 20);  // 在指定位置绘制文本
+    </script>
+</body>
 </html>
